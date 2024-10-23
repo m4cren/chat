@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Chatroom ng mga magaganda at poging studyante</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.0/socket.io.js" integrity="sha512-OovVc8Xk/+ils70VE978+ILm2IvIisZskNCaDvaTtXt7a2O3eioYv8SVKfjdVU1za9Ir/KHIqweNEGLLFk6bdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <link rel="stylesheet" href="{{url_for('static', filename = 'des.css')}}">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body style="text-align:center; font-family:monospace; font: size 14pt;"> 
+<script type="text/javascript">
+     $(document).ready(function(){
+          var socket = io.connect("http://localhost:5000")
+          socket.on('connect', function(){
+               socket.send("User connected!");
+          });
+     
+
+          socket.on('message', function(data){
+               $('#messages').append($('<p>').text(data));
+          });
+
+          $('#send_btn').on('click', function(){
+               socket.send($('#username').val() + ': ' + $('#message').val());
+               $('#message').val('');
+          });
+     })
+</script>
+     <input class="user" type="text" id="username" placeholder="Enter username" required="true">
+
+     <div id="messages" style="margin:0 auto; width: 60%; text-align:left">
+
+     </div>
+    
+     <div class="container">
+         
+          <input type="text" id="message" placeholder="Enter message" required="true">
+          <button id="send_btn">Send</button>
+     </div>
+     
+</body>
+</html>

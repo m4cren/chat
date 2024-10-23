@@ -1,0 +1,62 @@
+body{
+     margin: 0;
+}
+
+.container{
+     margin: auto;
+     position: absolute;
+     bottom: 0px;
+     background-color: rgb(255, 255, 255);
+     width: 100%;
+     padding: 35px 0px;
+     box-sizing: border-box;
+     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) inset;
+}
+
+.user{
+     position: absolute;
+     left: 0;
+     padding: 20px 50px;
+     margin: 10px;
+}
+.user:focus{
+     position: absolute;
+     left: 0;
+     padding: 20px 50px;
+     margin: 10px;
+     border: 2px solid green;
+}
+
+#messages{
+     margin: auto;
+     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) inset;
+     height: 100vh;
+}
+
+
+
+#message{
+     width: 1000px;
+     border: none;
+     border-radius: 10px;
+     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) ;
+     padding: 5px 5px;
+}
+
+#send_btn{
+     border: none;
+     background-color: black;
+     color: white;
+     border-radius: 3px;
+     width: 80px;
+     height: 40px;
+     font-weight: bolder;
+     transition: 0.1s ease-in;
+}
+#send_btn:hover{
+     color: black;
+     background-color: white;
+}
+#send_btn:active{
+     scale: 1.1;
+}
